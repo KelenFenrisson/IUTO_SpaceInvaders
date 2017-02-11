@@ -3,6 +3,8 @@ package gui;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import game.GestionJeu;
 
@@ -10,15 +12,16 @@ public class Main extends Application {
 
 
 
-    public static final String SPLASH_SCREEN = "splash";
-    public static final String SPLASH_SCREEN_FXML = "splash.fxml";
+    public static final String SPLASH_SCREEN = "Splash";
+    public static final String SPLASH_SCREEN_FXML = "Splash.fxml";
+    public static final String GAME_SCREEN = "Game";
+    public static final String GAME_SCREEN_FXML = "Game.fxml";
 
-    public static final String GAME_SCREEN = "game";
-    public static final String GAME_SCREEN_FXML = "game.fxml";
+    private GestionJeu gestionnaire;
 
     @Override
     public void init(){
-        GestionJeu gestionnaire = new GestionJeu();
+        gestionnaire = new GestionJeu();
     }
 
 
@@ -40,15 +43,22 @@ public class Main extends Application {
         root.getChildren().addAll(mainContainer);
 
         // La nouvelle scène devient le groupe et par extension la vue en cours.
-        Scene scene = new Scene(root);
 
+        // Un truc malin pour recuperer la taille en pixels d'un caractere ?
+        Text t=new Text("█");
+        t.setFont(Font.font("Monospaced",10));
+        int hauteurTexte =(int) t.getLayoutBounds().getHeight();
+        int largeurCaractere = (int) t.getLayoutBounds().getWidth();
+        Scene scene = new Scene(root,gestionnaire.getLargeur()*largeurCaractere,gestionnaire.getHauteur()*hauteurTexte);
+        // System.out.println("Dimensions : "+scene.getWidth()+"x"+scene.getHeight()); (c'etait pour avoir les dimensions pour mon image ;) )
         // On regle la scène dans la fenetre a la vue en cours
         primaryStage.setScene(scene);
 
+        // Vu qu'on est dépendants de la taille de la police, on interdit le resize.
+        primaryStage.setResizable(false);
         //On montre
         primaryStage.show();
     }
-
 
         public static void main(String[] args) {
         launch(args);
