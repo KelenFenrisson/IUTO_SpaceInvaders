@@ -2,7 +2,7 @@ package game;// CLASSE DONNEE AUX ETUDIANTS
 // A COMPLETER
 import java.util.ArrayList;
 
-class GestionJeu{
+public class GestionJeu{
 	/* ======== Attributs ======== */
 	private int largeur;
 	private int hauteur;
@@ -35,9 +35,9 @@ class GestionJeu{
         this.dessin = new Dessin();
         this.score = new Score();
         this.elementsdeJeu = new ArrayList<Dessin>();
-        this.chargeurAlien = new ChargeurDessin("src/skins_aliens.txt");
-        this.chargeurVaisseau = new ChargeurDessin("src/skins_ships.txt");
-        this.chargeurProjectile = new ChargeurDessin("src/skins_missiles.txt");
+        this.chargeurAlien = new ChargeurDessin("src/game/skins_aliens.txt");
+        this.chargeurVaisseau = new ChargeurDessin("src//game/skins_ships.txt");
+        this.chargeurProjectile = new ChargeurDessin("src//game/skins_missiles.txt");
         this.niveau = new Niveau(1,"",1,1,1);
         this.vaisseau = new Vaisseau(this.getLargeur(), 0,this.chargeurVaisseau.getListeDessin(),0,1);
         this.listeEnnemis = new ArrayList<Alien>();
