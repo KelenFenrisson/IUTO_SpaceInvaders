@@ -55,7 +55,7 @@ public class Game implements Initializable, ControlledScreen {
 
         Text t = new Text ((Main.LARGEUR_VUE*Main.largeurCaractere/2)-(this.message.length()/2)*Main.largeurCaractere,
                 (Main.HAUTEUR_VUE*Main.hauteurTexte/2), "Appuyez sur F2 pour lancer une partie");
-        t.setFont(Font.font ("Monospaced", 10));
+        t.setFont(Font.font ("Monospaced", 12));
         caracteres.getChildren().add(t);
 
     }
@@ -66,7 +66,7 @@ public class Game implements Initializable, ControlledScreen {
     public void majAffichage(){
 //        System.out.println("Maj Affichage");
         caracteres.getChildren().clear();
-        int hauteur = (int) root.getHeight();
+        int hauteur = Main.HAUTEUR_VUE * Main.hauteurTexte; // Pas adaptable mais ça marche
 
         for( ChainePositionnee cp : gestionnaire.getDessin().getChaines())
         {
@@ -135,7 +135,6 @@ public class Game implements Initializable, ControlledScreen {
     {
         this.gestionnaire=new GestionJeu();
         this.lancerAnimation();
-        this.majAffichage();
     }
 
     public void goToSplash(){

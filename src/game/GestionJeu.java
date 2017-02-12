@@ -1,5 +1,7 @@
 package game;// CLASSE DONNEE AUX ETUDIANTS
 // A COMPLETER
+import gui.Main;
+
 import java.util.ArrayList;
 
 public class GestionJeu{
@@ -30,8 +32,8 @@ public class GestionJeu{
 	// ATTENTION, seul le constructeur sans paramètre est accepté
 
     public GestionJeu() {
-        this.largeur = 100;
-        this.hauteur = 60;
+        this.largeur = Main.LARGEUR_VUE;
+        this.hauteur = Main.HAUTEUR_VUE;
         this.dessin = new Dessin();
         this.score = new Score();
         this.elementsdeJeu = new ArrayList<Dessin>();
@@ -39,13 +41,15 @@ public class GestionJeu{
         this.chargeurVaisseau = new ChargeurDessin("src/game/skins_ships.txt");
         this.chargeurProjectile = new ChargeurDessin("src/game/skins_missiles.txt");
         this.niveau = new Niveau(1,"",1,1,1);
-        this.vaisseau = new Vaisseau(this.getLargeur(), 0,this.chargeurVaisseau.getListeDessin(),0,1);
+        this.vaisseau = new Vaisseau(0, 0,this.chargeurVaisseau.getListeDessin(),0,1);
         this.listeEnnemis = new ArrayList<Alien>();
         this.listeTirs = new ArrayList<Projectile>();
         this.hud = new HUD(this.getLargeur(), this.getHauteur());
         this.compteTours = 0;
 
         this.initHUD();
+        this.elementsdeJeu.add(this.vaisseau);
+        this.creerEnnemis();
     }
     // =================================================================================================================
     // ==================================================   INITS   ====================================================
