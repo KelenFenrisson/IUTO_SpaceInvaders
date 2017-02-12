@@ -3,16 +3,16 @@ package game;
 /**
  * Created by mathieu on 11/02/17.
  */
-class Niveau
+public class Niveau
 {
-    int num;
-    String nom;
-    double vitesseEnnemis;
-    int vieEnnemis;
-    int modScoreEnnemis;
-    boolean termine;
+    private int num;
+    private String nom;
+    private double vitesseEnnemis;
+    private int vieEnnemis;
+    private int modScoreEnnemis;
+    private boolean termine;
 
-    Niveau(int num, String nom, double vitesseEnnemis, int vieEnnemis, int modScoreEnnemis) {
+    public Niveau(int num, String nom, double vitesseEnnemis, int vieEnnemis, int modScoreEnnemis) {
         this.num = num;
         this.nom = nom;
         this.vitesseEnnemis = vitesseEnnemis;
@@ -20,12 +20,12 @@ class Niveau
         this.modScoreEnnemis = modScoreEnnemis;
     }
 
-    int getNum() {
+    public int getNum() {
         return num;
     }
 
 
-    String getNom()
+    public String getNom()
     {
         if(this.nom.isEmpty())
         {
@@ -34,7 +34,7 @@ class Niveau
         return nom;
     }
 
-    double getVitesseEnnemis()
+    public double getVitesseEnnemis()
     {
         if(this.vitesseEnnemis<=0)
         {
@@ -44,7 +44,7 @@ class Niveau
     }
 
 
-    int getVieEnnemis() {
+    public int getVieEnnemis() {
         if(this.vieEnnemis<=0)
         {
             this.vieEnnemis=1;
@@ -52,7 +52,7 @@ class Niveau
         return vieEnnemis;
     }
 
-    int getModScoreEnnemis() {
+    public int getModScoreEnnemis() {
         if(this.modScoreEnnemis<=0)
         {
             this.modScoreEnnemis=num;
@@ -60,7 +60,7 @@ class Niveau
         return modScoreEnnemis;
     }
 
-    boolean isTermine()
+    public boolean isTermine()
     {
         return termine;
     }

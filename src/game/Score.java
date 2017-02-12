@@ -5,9 +5,9 @@ package game;
  */
 public class Score
 {
-    int points;
+    private int points;
 
-    Score()
+    public Score()
     {
         this.points=0;
     }

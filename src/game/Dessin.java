@@ -8,17 +8,17 @@ import java.util.ArrayList;
  * Un dessin contient un attribut qui est une liste de ChainePositionnee
  */
  
-class Dessin {
+public class Dessin {
 	/* ======== Attributs ======== */
-    ArrayList<ChainePositionnee> listeChaines;
+    private ArrayList<ChainePositionnee> listeChaines;
     
     /* ======== Constructeur ======== */
-    Dessin(){
+    public Dessin(){
 		this.listeChaines= new ArrayList<ChainePositionnee>();
 	}
 	
 	/* ======== Getteurs ======== */
-	ArrayList<ChainePositionnee> getChaines(){
+    public ArrayList<ChainePositionnee> getChaines(){
 		return this.listeChaines;
 	}
 	

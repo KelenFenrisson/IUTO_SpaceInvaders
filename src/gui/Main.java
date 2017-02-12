@@ -6,22 +6,27 @@ import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import game.GestionJeu;
 
 public class Main extends Application {
 
-
+    public static final int HAUTEUR_VUE = 60;
+    public static final int LARGEUR_VUE = 100;
+    public static int largeurCaractere;
+    public static int hauteurTexte;
 
     public static final String SPLASH_SCREEN = "Splash";
     public static final String SPLASH_SCREEN_FXML = "Splash.fxml";
     public static final String GAME_SCREEN = "Game";
     public static final String GAME_SCREEN_FXML = "Game.fxml";
 
-    private GestionJeu gestionnaire;
 
     @Override
     public void init(){
-        gestionnaire = new GestionJeu();
+        // Un truc malin pour recuperer la taille en pixels d'un caractere ?
+        Text t=new Text("█");
+        t.setFont(Font.font("Monospaced",10));
+        Main.hauteurTexte =(int) t.getLayoutBounds().getHeight();
+        Main.largeurCaractere = (int) t.getLayoutBounds().getWidth();
     }
 
 
@@ -44,12 +49,9 @@ public class Main extends Application {
 
         // La nouvelle scène devient le groupe et par extension la vue en cours.
 
-        // Un truc malin pour recuperer la taille en pixels d'un caractere ?
-        Text t=new Text("█");
-        t.setFont(Font.font("Monospaced",10));
-        int hauteurTexte =(int) t.getLayoutBounds().getHeight();
-        int largeurCaractere = (int) t.getLayoutBounds().getWidth();
-        Scene scene = new Scene(root,gestionnaire.getLargeur()*largeurCaractere,gestionnaire.getHauteur()*hauteurTexte);
+
+
+        Scene scene = new Scene(root,LARGEUR_VUE*largeurCaractere,HAUTEUR_VUE*hauteurTexte);
         // System.out.println("Dimensions : "+scene.getWidth()+"x"+scene.getHeight()); (c'etait pour avoir les dimensions pour mon image ;) )
         // On regle la scène dans la fenetre a la vue en cours
         primaryStage.setScene(scene);

@@ -24,33 +24,33 @@ package game;
  * Created by mathieu on 06/02/17.
  */
 
-class Position
+public class Position
 {
     private double x;
     private double y;
 
-    Position(double x, double y) {
+    public Position(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    double getX() {
+    public double getX() {
         return x;
     }
 
-    void setX(double x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    double getY() {
+    public double getY() {
         return y;
     }
 
-    void setY(double y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    boolean equals(Position autre)
+    public boolean equals(Position autre)
     {
         return this.getX()==autre.getX() && this.getY()==autre.getY();
     }

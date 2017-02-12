@@ -5,11 +5,12 @@ import java.util.ArrayList;
 /**
  * Created by pubert on 09/02/17.
  */
-class Projectile extends Personnage
+public class Projectile extends Personnage
 {
-    boolean hit;
-    int power;
-    Projectile(double x, double y, ArrayList<Dessin> listeVues, int numVue, int power)
+    private boolean hit;
+    private int power;
+
+    public Projectile(double x, double y, ArrayList<Dessin> listeVues, int numVue, int power)
     {
         super(x, y, listeVues, numVue, 1);
         this.hit=false;
