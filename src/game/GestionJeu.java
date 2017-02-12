@@ -1,7 +1,9 @@
 package game;// CLASSE DONNEE AUX ETUDIANTS
 // A COMPLETER
 import gui.Main;
+import javafx.scene.media.AudioClip;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class GestionJeu{
@@ -224,6 +226,8 @@ public class GestionJeu{
     public void toucheEspace()
     {
         //System.out.println("Appui touche Espace");
+        AudioClip pew = new AudioClip(Paths.get("src/game/phasers3.wav").toUri().toString());
+        pew.play();
         Position canon = this.vaisseau.getPositionCanon();
         Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),6,10);
         this.listeTirs.add(tir);
@@ -263,6 +267,9 @@ public class GestionJeu{
                 this.elementsdeJeu.add(nouveau);
             }
         }
+
+        AudioClip ufo = new AudioClip(Paths.get("src/game/ufo2.wav").toUri().toString());
+        ufo.play();
     }
 
     public void deplacerEnnemis()
