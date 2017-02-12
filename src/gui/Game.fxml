@@ -4,8 +4,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-
-<AnchorPane fx:id="root" children="${root.children}" onKeyPressed="#handleKey" onKeyReleased="#handleKey" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Game">
+<AnchorPane
+        fx:id="root"
+        children="${root.children}"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="gui.Game"
+        focusTraversable="true">
 
     <Group fx:id="caracteres" children="${caracteres.children}" />
 
