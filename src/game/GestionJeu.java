@@ -57,6 +57,7 @@ public class GestionJeu{
     public void initHUD()
     {
 
+
     }
 
     // =================================================================================================================
@@ -224,11 +225,11 @@ public class GestionJeu{
     {
         //System.out.println("Appui touche Espace");
         Position canon = this.vaisseau.getPositionCanon();
-        Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),0,1);
+        Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),6,10);
         this.listeTirs.add(tir);
         this.elementsdeJeu.add(tir);
-        System.out.println("Taille liste des ennemis : "+ this.listeEnnemis.size());
-        System.out.println("Taille liste d'elements de jeu : "+ this.elementsdeJeu.size());
+//        System.out.println("Taille liste des ennemis : "+ this.listeEnnemis.size());
+//        System.out.println("Taille liste d'elements de jeu : "+ this.elementsdeJeu.size());
 	}
 
     public void toucheDroite()
@@ -257,7 +258,7 @@ public class GestionJeu{
         {
             for(int y = this.getHauteur()-7; y>this.getHauteur()/2;y-=7)
             {
-                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), 0,1);
+                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), 4,10);
                 this.listeEnnemis.add(nouveau);
                 this.elementsdeJeu.add(nouveau);
             }

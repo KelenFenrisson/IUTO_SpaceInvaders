@@ -51,11 +51,7 @@ public class Personnage extends Diaporama
     public void subirDegats(int montant)
     {
         this.setVies(this.getVies()-montant);
-        if(this.getVies()>0) {
-            this.setNumVue(this.getVies());
-        }
-        else
-        {
+        if(this.getVies()<=0) {
             this.setMort(true);
         }
     }

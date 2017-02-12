@@ -5,11 +5,9 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -35,7 +33,6 @@ public class Game implements Initializable, ControlledScreen {
     private EventHandler KeHandler = this.initKeyEventHandler();
     private String message = "Appuyez sur F2 pour lancer une nouvelle partie";
     public AnchorPane root = new AnchorPane();
-
     public Group caracteres = new Group();
 
 
