@@ -7,15 +7,15 @@ package game;
  *
  * ATTRIBUTS
  * 
- private int screenWidth;
- private int screenHeight;
- private int score;
- private int levelNum;
- private ChainePositionnee scoreTag;
- private ChainePositionnee newGameMsg;
- private ChainePositionnee newLevelMsg;
- private ChainePositionnee endLevelMsg;
- private ChainePositionnee gameOverMsg;
+ * private int screenWidth;
+ * private int screenHeight;
+ * private int score;
+ * private int levelNum;
+ * private ChainePositionnee scoreTag;
+ * private ChainePositionnee newGameMsg;
+ * private ChainePositionnee newLevelMsg;
+ * private ChainePositionnee endLevelMsg;
+ * private ChainePositionnee gameOverMsg;
  *
  * *********************************************************************************************************************
  *
