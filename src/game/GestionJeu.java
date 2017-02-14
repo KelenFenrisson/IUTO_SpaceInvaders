@@ -113,8 +113,8 @@ public class GestionJeu{
         this.chargeurAlien = new ChargeurDessin("src/game/skins_aliens.txt");
         this.chargeurVaisseau = new ChargeurDessin("src/game/skins_ships.txt");
         this.chargeurProjectile = new ChargeurDessin("src/game/skins_missiles.txt");
-        this.niveau = new Niveau(1,"",1,1,1);
-        this.vaisseau = new Vaisseau(0, 0,this.chargeurVaisseau.getListeDessin(),0,1000);
+        this.niveau = new Niveau(1,"",-0.01,1,1);
+        this.vaisseau = new Vaisseau(0, 0,this.chargeurVaisseau.getListeDessin(),0,1);
         this.listeEnnemis = new ArrayList<Alien>();
         this.listeTirs = new ArrayList<Projectile>();
         this.hud = new HUD(this.getLargeur(), this.getHauteur());
@@ -122,7 +122,7 @@ public class GestionJeu{
 
         this.initHUD();
         this.elementsdeJeu.add(this.vaisseau);
-        this.creerEnnemis();
+        this.creerEnnemis(this.getNiveau().getVieEnnemis());
 
     }
 
@@ -281,6 +281,22 @@ public class GestionJeu{
 	// méthode au risque de saturer rapidement la mémoire
     public void jouerUnTour(){
 
+        // Ce bout de code est sale. je devrais le gérer autrement mais je ne comprends pas encore très bien
+        // L'animation
+
+        if(this.getNiveau().isTermine())
+        {
+            // Message "Niveau X terminé, preparez vous pour le niveau X+1
+            this.setNiveau(new Niveau(
+                    this.getNiveau().getNum()+1,
+                    "",
+                    this.getNiveau().getVitesseEnnemis()-0.01,
+                    this.getNiveau().getVieEnnemis()+1,
+                    this.getNiveau().getModScoreEnnemis()+1
+                    ));
+            this.creerEnnemis(this.getNiveau().getVieEnnemis());
+        }
+
 	    // Deplacements
 	    this.deplacerEnnemis();
         this.deplacerTirs();
@@ -304,7 +320,7 @@ public class GestionJeu{
         pew.setVolume(0.05);
         pew.play();
         Position canon = this.vaisseau.getPositionCanon();
-        Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),6,10);
+        Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),6,1);
         this.listeTirs.add(tir);
         this.elementsdeJeu.add(tir);
 //        System.out.println("Taille liste des ennemis : "+ this.listeEnnemis.size());
@@ -329,7 +345,7 @@ public class GestionJeu{
         }
     }
 
-    public void creerEnnemis()
+    public void creerEnnemis(int vieennemis)
     {
         // Un Alien a une taille max de (17,7) selon le fichier skins_aliens.txt
 
@@ -337,7 +353,7 @@ public class GestionJeu{
         {
             for(int y = this.getHauteur()-7; y>this.getHauteur()/2;y-=7)
             {
-                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), 4,10);
+                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), 0,vieennemis);
                 this.listeEnnemis.add(nouveau);
                 this.elementsdeJeu.add(nouveau);
             }
@@ -357,11 +373,11 @@ public class GestionJeu{
         {
             if((this.compteTours/100)%2!=0)
             {
-                ennemi.deplacer(0.1,-0.05);
+                ennemi.deplacer(0.1,this.getNiveau().getVitesseEnnemis());
             }
             else
             {
-                ennemi.deplacer(-0.1,-0.05);
+                ennemi.deplacer(-0.1,this.getNiveau().getVitesseEnnemis());
             }
         }
     }
@@ -390,18 +406,17 @@ public class GestionJeu{
                 }
             }
 
-            for(double i=this.getVaisseau().getX();i<this.getVaisseau().getLargeur();++i)
+            for(double i=this.getVaisseau().getX();i<this.getVaisseau().getX()+this.getVaisseau().getLargeur();++i)
             {
-                for(double j=this.getVaisseau().getY();j<this.getVaisseau().getHauteur();++j)
+                for(double j=this.getVaisseau().getY();j<this.getVaisseau().getY()+this.getVaisseau().getHauteur();++j)
                 {
                     if(mob.contient(i,j))
                     {
-                        System.out.println("AIEUUUU");
                         // Le joueur perd autant de vies qu'il en reste à l'alien
                         this.getVaisseau().subirDegats(mob.getVies());
 
                         // Mais reussit quand même a le tuer. ( Pas envie de gérer un clignotement et invincibilité )
-                        mob.setMort(true);
+                        mob.subirDegats(1000000);
                     }
                 }
             }
@@ -471,6 +486,7 @@ public class GestionJeu{
     public void levelOver()
     {
         //System.out.println("Fin du niveau");
+        this.getNiveau().setTermine(true);
         this.getNiveau().bgmStop();
     }
 
