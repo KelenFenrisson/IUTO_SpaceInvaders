@@ -1,22 +1,23 @@
 package gui;
 
-/** Interface ControlledScreen
- *
- *
- * Requiert l'implementation d'une methode d'injection de parent
- *
+/** INTERFACE ControlledScreens
  *
  * SOURCE :
  * Issue d'un article de Angela Caicedo:
  * (https://blogs.oracle.com/acaicedo/entry/managing_multiple_screens_in_javafx1)
+ *
+ ***********************************************************************************************************************
+ * NECESSITE
+ *
+ * void initialize();
+ * void setScreenParent(ScreensController screenPage);
+ * *********************************************************************************************************************
  */
 
 public interface ControlledScreen
 {
 
     void initialize();
-
-    //This method will allow the injection of the Parent ScreenPane
-    public void setScreenParent(ScreensController screenPage);
+    void setScreenParent(ScreensController screenPage);
 
 }

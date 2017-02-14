@@ -7,6 +7,31 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
+/** CLASSE Main
+ *
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ *
+ * public static final int HAUTEUR_VUE = 60;
+ * public static final int LARGEUR_VUE = 100;
+ * public static int largeurCaractere;
+ * public static int hauteurTexte;
+ * public static final String SPLASH_SCREEN = "Splash";
+ * public static final String SPLASH_SCREEN_FXML = "Splash.fxml";
+ * public static final String GAME_SCREEN = "Game";
+ * public static final String GAME_SCREEN_FXML = "Game.fxml";
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public void init()
+ * public void start(Stage primaryStage)
+ * public static void main(String[] args)
+ * *********************************************************************************************************************
+ */
+
 public class Main extends Application {
 
     public static final int HAUTEUR_VUE = 60;

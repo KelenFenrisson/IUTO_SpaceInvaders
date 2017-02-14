@@ -1,10 +1,29 @@
 package gui;
 
-/** MPKEventHandler
+/** CLASSE MPKEventHandler
+ *
+ * Un receptionnaire d'evenement clavier qui gère presque bien l'appui sur plusieurs touches.
+ *
+ * * SOURCE :
  *  d'après un article de Jiri Prajzner
  * http://www.brainoverload.nl/java/167/keypressedeventhandler-with-java-fx-2-0-and-multiple-keys
- * Created by mathieu on 12/02/17.
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ *
+ * private final Set<KeyCode> buffer = EnumSet.noneOf(KeyCode.class);
+ * private final MultiKeyEvent multiKeyEvent = new MultiKeyEvent();
+ * private final MultiKeyEventHandler multiKeyEventHandler;
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public MPKEventHandler(final MultiKeyEventHandler handler)
+ * public interface MultiKeyEventHandler
+ * public class MultiKeyEvent
+ * *********************************************************************************************************************
  */
+
 import java.util.EnumSet;
 import java.util.Set;
 import javafx.event.EventHandler;

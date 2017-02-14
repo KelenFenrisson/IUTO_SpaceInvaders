@@ -9,15 +9,30 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
-/** Classe SplashScreenController, implemente ControlledScreens
+/** CLASSE Splash
  *
- * Contient les contrôles (du modele MVC) de l'ecran splash
- *
- *
- *
- * SOURCE :
+ * Contrôleur du SplashScreen 
+ * * SOURCE :
  * Issue d'un article de Angela Caicedo:
  * (https://blogs.oracle.com/acaicedo/entry/managing_multiple_screens_in_javafx1)
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ *
+ * public Image image;
+ * private ScreensController myController;
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public void initialize()
+ * public void initialize(URL url, ResourceBundle resourceBundle)
+ * public void setScreenParent(ScreensController screenParent)
+ * public void goToGame()
+ * public void initialize(URL url, ResourceBundle resourceBundle)
+ * public void playGrowl()
+ *
+ * *********************************************************************************************************************
  */
 public class Splash implements Initializable, ControlledScreen {
 

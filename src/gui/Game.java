@@ -15,16 +15,40 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/** Classe Game : controleur de la vue Game.fxml
- * @implements ControlledScreens
+/** CLASSE Game
  *
- *
- *
- *
- * SOURCE :
+ * Contrôleur de toute la partie jeu de l'application
+ *  * SOURCE :
  * Issue d'un article de Angela Caicedo:
  * (https://blogs.oracle.com/acaicedo/entry/managing_multiple_screens_in_javafx1)
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ *
+ * private ScreensController myController;
+ * private GestionJeu gestionnaire;
+ * private Timeline timeline;
+ * private EventHandler KeHandler = this.initKeyEventHandler();
+ * private String message = "Appuyez sur F2 pour lancer une nouvelle partie";
+ * public AnchorPane root = new AnchorPane();
+ * public Group caracteres = new Group();
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public void initialize()
+ * public void initialize(URL url, ResourceBundle resourceBundle)
+ * public void majAffichage()
+ * public void lancerAnimation()
+ * public void arreterAnimation()
+ * public void setScreenParent(ScreensController screenParent)
+ * public MPKEventHandler initKeyEventHandler()
+ * public void handle(MPKEventHandler.MultiKeyEvent ke)
+ * public void nouvellePartie()
+ *
+ * *********************************************************************************************************************
  */
+
 public class Game implements Initializable, ControlledScreen {
 
     private ScreensController myController;
@@ -92,7 +116,7 @@ public class Game implements Initializable, ControlledScreen {
     }
 
 
-    void arreterAnimation() {
+    public void arreterAnimation() {
         timeline.stop();
     }
 

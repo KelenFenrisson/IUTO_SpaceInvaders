@@ -12,10 +12,27 @@ import javafx.util.Duration;
 
 import java.util.HashMap;
 
-/**
- * SOURCE :
+/** CLASSE ScreensController
+ *
+ * Un chargeur de panels plus efficace que de precharger X panel et de les laisser tourner en fond
+ *
+ * * SOURCE :
  * Issue d'un article de Angela Caicedo:
  * (https://blogs.oracle.com/acaicedo/entry/managing_multiple_screens_in_javafx1)
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ *
+ * private HashMap<String, Node> screens = new HashMap<>();
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ * public void addScreen(String name, Node screen)
+ * public boolean loadScreen(String name, String resource)
+ * public boolean setScreen(final String name)
+ * public boolean unloadScreen(String name)
+ *
+ * *********************************************************************************************************************
  */
 
 public class ScreensController extends StackPane {
