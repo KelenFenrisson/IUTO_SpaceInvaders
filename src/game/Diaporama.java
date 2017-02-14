@@ -2,9 +2,37 @@ package game;
 
 import java.util.ArrayList;
 
-/**
- * Created by mathieu on 09/02/17.
+/** CLASSE Diaporama
+ *
+ * Un dessin qui peut changer selon une liste de dessins et un numero de vue
+ *
+ * *********************************************************************************************************************
+ * ATTRIBUTS
+ *
+ * private double x;
+ * private double y;
+ * private ArrayList<Dessin> listeVues;
+ * private int numVue;
+ * private double largeur;
+ * private double hauteur;
+ *
+ * *********************************************************************************************************************
+ * METHODES
+ *
+ * public Diaporama(double x, double y, ArrayList<Dessin> listeVues, int numVue)
+ * public double getX()
+ * public void setX(double nx)
+ * public double getY()
+ * public void setY(double ny)
+ * public int getLargeur()
+ * public int getHauteur()
+ * public ArrayList<Dessin> getListeVues()
+ * public void setListeVues(ArrayList<Dessin> listeVues)
+ * public int getNumVue()
+ * public void setNumVue(int numVue)
+ * *********************************************************************************************************************
  */
+
 public class Diaporama extends Dessin
 {
     private double x; // x mini

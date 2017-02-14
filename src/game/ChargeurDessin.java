@@ -8,8 +8,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by mathieu on 08/02/17.
+/** CLASSE ChargeurDessin
+ *
+ * Cette classe va piocher les caracteres ASCII des personnages du jeu et les transforme en liste de Dessin()
+ *
+ * *********************************************************************************************************************
+ * ATTRIBUTS
+ *
+ * private ArrayList<Dessin> listeDessin;
+ * private String nomFichier;
+ *
+ * *********************************************************************************************************************
+ * METHODES
+ *
+ * public ChargeurDessin(String nomFichier)
+ * public ChargeurDessin(String nomFichier)
+ * public ArrayList<Dessin> getListeDessin()
+ * public ArrayList<Dessin> remplirListeDessin() throws IOException
+ * public void setListeDessin(ArrayList<Dessin> listeDessin)
+ * public String getNomFichier()
+ * public void setNomFichier(String nomFichier)
+ * *********************************************************************************************************************
  */
 public class ChargeurDessin
 {

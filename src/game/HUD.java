@@ -1,7 +1,42 @@
 package game;
 
-/** Classe gérant l'affichage des infos sur le dessin du jeu
- * Created by mathieu on 11/02/17.
+/** CLASSE HUD
+ *
+ *
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ * 
+ private int screenWidth;
+ private int screenHeight;
+ private int score;
+ private int levelNum;
+ private ChainePositionnee scoreTag;
+ private ChainePositionnee newGameMsg;
+ private ChainePositionnee newLevelMsg;
+ private ChainePositionnee endLevelMsg;
+ private ChainePositionnee gameOverMsg;
+ *
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public HUD(int largeur, int hauteur)
+ * public int getScore()
+ * public int getLevelNum()
+ * public ChainePositionnee getScoreTag()
+ * public ChainePositionnee getNewGameMsg()
+ * public ChainePositionnee getNewLevelMsg()
+ * public ChainePositionnee getEndLevelMsg()
+ * public ChainePositionnee getGameOverMsg()
+ * public void setScore(int score)
+ * public void setLevelNum(int levelNum)
+ * public void setScoreTag(ChainePositionnee scoreTag)
+ * public void setNewGameMsg(ChainePositionnee newGameMsg)
+ * public void setNewLevelMsg(ChainePositionnee newLevelMsg)
+ * public void setEndLevelMsg(ChainePositionnee endLevelMsg)
+ * public void setGameOverMsg(ChainePositionnee gameOverMsg) 
+ * *********************************************************************************************************************
  */
 public class HUD extends Dessin
 {

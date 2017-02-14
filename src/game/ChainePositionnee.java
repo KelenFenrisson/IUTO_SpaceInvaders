@@ -1,11 +1,27 @@
-package game;// CLASSE DONNEE AUX ETUDIANTS
-// NE PAS MODIFIER
+package game;
 
-/**
- * l'origine du repère, c'est à dire le point de coordonnées (0, 0), 
- * est le point situé en bas à gauche de la fenêtre de jeu
+/** CLASSE ChainePositionnee
+ *
+ *
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ * private double x;
+ * private double y;
+ * private String chaine;
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ * public ChainePositionnee(double x, double y, String str)
+ * public double getx()
+ * public double gety()
+ * public String getChaine()
+ * public void setx(double x)
+ * public void sety(double y)
+ * public void setChaine(String c)
+ * public boolean contient(double tx, double ty)
+ * *********************************************************************************************************************
  */
-
 public class ChainePositionnee{
 	/* ======== Attributs ======== */
 	private double x,y;

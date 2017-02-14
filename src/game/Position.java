@@ -1,17 +1,19 @@
 package game;
-
-/** classe Position
+/** CLASSE Position
  *
- * Parente des classes des elements de jeu.
  *
- * ##################### Attributs :
+ * Couple de coordonnees
  *
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
  * double x : abscisse
  * double y; ordonnee
+ * *********************************************************************************************************************
  *
- * ##################### Methodes :
+ * METHODES
  *
- * Constructeur(double, double):
+ * public Position(double x, double y)
  *
  * double getX():
  * double setX(double):
@@ -21,7 +23,7 @@ package game;
  *
  * boolean equals(double, double)
  *
- * Created by mathieu on 06/02/17.
+ * *********************************************************************************************************************
  */
 
 public class Position

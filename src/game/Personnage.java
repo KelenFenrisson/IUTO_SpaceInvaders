@@ -2,8 +2,34 @@ package game;
 
 import java.util.ArrayList;
 
-/**
- * Created by pubert on 09/02/17.
+
+/** CLASSE Personnage
+ *
+ *
+ *
+ * *********************************************************************************************************************
+ * ATTRIBUTS
+ *
+ * private double x;
+ * private double y;
+ * private ArrayList<Dessin> listeVues;
+ * private int numVue;
+ * private double largeur;
+ * private double hauteur;
+ *
+ * *********************************************************************************************************************
+ * METHODES
+ *
+ * public Personnage(double x, double y, ArrayList<Dessin> listeVues, int numVue, int vies)
+ * public boolean isMort()
+ * public void setMort(boolean mort)
+ * public boolean isTouche()
+ * public void setTouche(boolean touche)
+ * public int getVies()
+ * public void setVies(int vies)
+ * public void deplacer(double dx, double dy)
+ * public void subirDegats(int montant)
+ * *********************************************************************************************************************
  */
 public class Personnage extends Diaporama
 {

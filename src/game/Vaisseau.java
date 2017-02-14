@@ -2,9 +2,24 @@ package game;
 
 import java.util.ArrayList;
 
-/**
- * Created by pubert on 09/02/17.
+/** CLASSE Vaisseau
+ *
+ * Personnage contrôlé par le joueur
+ *
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ * private ArrayList<Dessin> listeProjectiles;
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public Vaisseau(double x, double y, ArrayList<Dessin> listeVues, int numVue, int vies)
+ * public void setListeProjectiles(ArrayList<Dessin> listeP)
+ * public Position getPositionCanon()
+ * *********************************************************************************************************************
  */
+
 public class Vaisseau extends Personnage
 {
     private ArrayList<Dessin> listeProjectiles;

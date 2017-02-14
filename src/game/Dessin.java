@@ -1,11 +1,27 @@
-package game;// CLASSE DONNEE AUX ETUDIANTS
-// NE PAS MODIFIER
+package game;
+
 
 import java.util.ArrayList;
 
-/**
- * Dessin est une classe qui permet de représenter un dessin
- * Un dessin contient un attribut qui est une liste de ChainePositionnee
+/** CLASSE Dessin
+ *
+ *
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ *
+ * private ArrayList<ChainePositionnee> listeChaines;
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public Dessin()
+ * public ArrayList<ChainePositionnee> getChaines()
+ * public void ajouteChaine(double x, double y, String chaine)
+ * public void ajouteDessin(Dessin autreDessin)
+ * public boolean contient(double posx, double posy)
+ * public void vider()
+ * *********************************************************************************************************************
  */
  
 public class Dessin {

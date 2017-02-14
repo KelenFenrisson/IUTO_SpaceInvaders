@@ -6,6 +6,76 @@ import javafx.scene.media.AudioClip;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/** CLASSE GestionJeu
+ *
+ *
+ ***********************************************************************************************************************
+ *
+ * ATTRIBUTS
+ *
+ * private int largeur;
+ * private int hauteur;
+ * private Dessin dessin;
+ * private HUD hud;
+ * private Score score;
+ * private ArrayList<Dessin> elementsdeJeu;
+ * private ChargeurDessin chargeurAlien;
+ * private ChargeurDessin chargeurVaisseau;
+ * private ChargeurDessin chargeurProjectile;
+ * private Niveau niveau;
+ * private Vaisseau vaisseau;
+ * private ArrayList<Alien> listeEnnemis;
+ * private ArrayList<Projectile> listeTirs;
+ * private int compteTours;
+ * 
+ * *********************************************************************************************************************
+ *
+ * METHODES
+ *
+ * public GestionJeu()
+ * public void initHUD()
+ * public int getLargeur()
+ * public int getHauteur()
+ * public HUD getHud()
+ * public Score getScore()
+ * public ArrayList<Dessin> getElementsdeJeu()
+ * public ChargeurDessin getChargeurAlien()
+ * public ChargeurDessin getChargeurVaisseau()
+ * public ChargeurDessin getChargeurProjectile()
+ * public Niveau getNiveau()
+ * public Vaisseau getVaisseau()
+ * public ArrayList<Alien> getListeEnnemis()
+ * public ArrayList<Projectile> getListeTirs()
+ * public int getCompteTours()
+ * public void setLargeur(int largeur)
+ * public void setHauteur(int hauteur)
+ * public void setDessin(Dessin dessin)
+ * public void setHud(HUD hud)
+ * public void setScore(Score score)
+ * public void setElementsdeJeu(ArrayList<Dessin> elementsdeJeu)
+ * public void setChargeurAlien(ChargeurDessin chargeurAlien)
+ * public void setChargeurVaisseau(ChargeurDessin chargeurVaisseau)
+ * public void setChargeurProjectile(ChargeurDessin chargeurProjectile)
+ * public void setNiveau(Niveau niveau)
+ * public void setVaisseau(Vaisseau vaisseau)
+ * public void setListeEnnemis(ArrayList<Alien> listeEnnemis)
+ * public void setListeTirs(ArrayList<Projectile> listeTirs)
+ * public void setCompteTours(int compteTours)
+ * public Dessin getDessin()
+ * public void jouerUnTour()
+ * public void toucheEspace()
+ * public void toucheDroite()
+ * public void creerEnnemis()
+ * public void deplacerEnnemis()
+ * public void deplacerTirs()
+ * public void detecterCollisions()
+ * public void nettoyagetableau()
+ * public void majScore(int points)
+ * public void checkCycleJeu()
+ * public void levelOver()
+ * public void gameOver()
+ * *********************************************************************************************************************
+ */
 public class GestionJeu{
 	/* ======== Attributs ======== */
 	private int largeur;
