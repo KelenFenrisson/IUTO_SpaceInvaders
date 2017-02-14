@@ -52,6 +52,7 @@ public class GestionJeu{
         this.initHUD();
         this.elementsdeJeu.add(this.vaisseau);
         this.creerEnnemis();
+
     }
     // =================================================================================================================
     // ==================================================   INITS   ====================================================
@@ -226,7 +227,8 @@ public class GestionJeu{
     public void toucheEspace()
     {
         //System.out.println("Appui touche Espace");
-        AudioClip pew = new AudioClip(Paths.get("src/game/phasers3.wav").toUri().toString());
+        AudioClip pew = new AudioClip(Paths.get("src/sfx/phasers3.wav").toUri().toString());
+        pew.setVolume(0.05);
         pew.play();
         Position canon = this.vaisseau.getPositionCanon();
         Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),6,10);
@@ -268,8 +270,11 @@ public class GestionJeu{
             }
         }
 
-        AudioClip ufo = new AudioClip(Paths.get("src/game/ufo2.wav").toUri().toString());
+        AudioClip ufo = new AudioClip(Paths.get("src/sfx/ufo2.wav").toUri().toString());
+        ufo.setVolume(0.25);
         ufo.play();
+        this.getNiveau().bgmPlay();
+
     }
 
     public void deplacerEnnemis()
@@ -365,6 +370,7 @@ public class GestionJeu{
                 if(mob.getY()<=0)
                 {
                     System.out.println("Le joueur perd une vie !");
+                    this.gameOver();
                 }
         }
     }
@@ -372,11 +378,13 @@ public class GestionJeu{
     public void levelOver()
     {
         //System.out.println("Fin du niveau");
+        this.getNiveau().bgmStop();
     }
 
 
     public void gameOver()
     {
         System.out.println("Game Over");
+        this.getNiveau().bgmStop();
     }
 }

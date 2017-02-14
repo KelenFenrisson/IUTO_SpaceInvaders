@@ -1,5 +1,9 @@
 package game;
 
+import javafx.scene.media.AudioClip;
+
+import java.nio.file.Paths;
+
 /**
  * Created by mathieu on 11/02/17.
  */
@@ -10,6 +14,8 @@ public class Niveau
     private double vitesseEnnemis;
     private int vieEnnemis;
     private int modScoreEnnemis;
+
+    private AudioClip bgm;
     private boolean termine;
 
     public Niveau(int num, String nom, double vitesseEnnemis, int vieEnnemis, int modScoreEnnemis) {
@@ -18,6 +24,8 @@ public class Niveau
         this.vitesseEnnemis = vitesseEnnemis;
         this.vieEnnemis = vieEnnemis;
         this.modScoreEnnemis = modScoreEnnemis;
+        this.bgm = new AudioClip(Paths.get("src/sfx/bgm.wav").toUri().toString());
+        this.bgm.setVolume(0.25);
     }
 
     public int getNum() {
@@ -59,6 +67,23 @@ public class Niveau
         }
         return modScoreEnnemis;
     }
+
+    public AudioClip getBgm() {
+        return bgm;
+    }
+
+    public void setBgm(AudioClip bgm) {
+        this.bgm = bgm;
+    }
+
+    public void bgmPlay() {
+        this.bgm.play();
+    }
+
+    public void bgmStop() {
+        this.bgm.stop();
+    }
+
 
     public boolean isTermine()
     {

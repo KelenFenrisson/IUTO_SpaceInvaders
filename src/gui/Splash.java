@@ -49,7 +49,7 @@ public class Splash implements Initializable, ControlledScreen {
 
     public void playGrowl()
     {
-        AudioClip growl = new AudioClip(Paths.get("src/gui/growl.wav").toUri().toString());
+        AudioClip growl = new AudioClip(Paths.get("src/sfx/growl.wav").toUri().toString());
         growl.play();
     }
 
