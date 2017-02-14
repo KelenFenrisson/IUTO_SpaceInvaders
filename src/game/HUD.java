@@ -2,7 +2,7 @@ package game;
 
 /** CLASSE HUD
  *
- *
+ * Depuis l'apparition de Game.fxml qui gère la vue. Cette classe a t-elle encore un sens ?
  ***********************************************************************************************************************
  *
  * ATTRIBUTS

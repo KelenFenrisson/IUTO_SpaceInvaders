@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 /** CLASSE GestionJeu
  *
+ * Gère le déroulement du jeu. Elle est TENTACULAIRE ! Il faut absolument que je fasse quelque chose à
+ * ce sujet une fois terminee
  *
  ***********************************************************************************************************************
  *
@@ -77,30 +79,29 @@ import java.util.ArrayList;
  * *********************************************************************************************************************
  */
 public class GestionJeu{
-	/* ======== Attributs ======== */
+
+    // =================================================================================================================
+    // ==============================================   ATTRIBUTES    ==================================================
+    // =================================================================================================================
+
 	private int largeur;
 	private int hauteur;
 	private Dessin dessin;
 	private HUD hud;
-
 	private Score score;
-
     private ArrayList<Dessin> elementsdeJeu;
 	private ChargeurDessin chargeurAlien;
     private ChargeurDessin chargeurVaisseau;
     private ChargeurDessin chargeurProjectile;
-
     private Niveau niveau;
     private Vaisseau vaisseau;
     private ArrayList<Alien> listeEnnemis;
     private ArrayList<Projectile> listeTirs;
-
     private int compteTours;
 
     // =================================================================================================================
     // ==============================================   CONSTRUCTOR   ==================================================
     // =================================================================================================================
-
 	// ATTENTION, seul le constructeur sans paramètre est accepté
 
     public GestionJeu() {
@@ -124,6 +125,8 @@ public class GestionJeu{
         this.creerEnnemis();
 
     }
+
+
     // =================================================================================================================
     // ==================================================   INITS   ====================================================
     // =================================================================================================================

@@ -13,7 +13,14 @@ en ASCII art
 J'ai décidé de changer la structure donnée par l'énoncé car,
  bien qu'adaptée a l'apprentissage de la POO, je la trouvais 
  trop restrictive et je me sentais capable de la depasser.
-
+ 
+ JavaFX est basé sur un modele MVC et comme je l'avais abordé en cours
+ j'ai décidé de m'y interesser
+ 
+ J'ai aussi décidé d'integrer deux fonctionalités issues de
+ [codes source externes](doc/SOURCES.md) qui 
+ necessitaient ces changements.
+ 
 ## STRUCTURE
 
 - README.md : ce fichier.
@@ -60,10 +67,3 @@ tout le contenu graphique employé.
 ### LES SONS
 Je ne suis pas à 100% certain de la licence Creative Commons de 
 tout le contenu sonore employé.  
-
-### SOURCES
-
-###### ANGELA CACEIDO
-https://blogs.oracle.com/acaicedo/entry/managing_multiple_screens_in_javafx1
-###### JIRI PRAJZNER
-http://www.brainoverload.nl/java/167/keypressedeventhandler-with-java-fx-2-0-and-multiple-keys
