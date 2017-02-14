@@ -114,7 +114,7 @@ public class GestionJeu{
         this.chargeurVaisseau = new ChargeurDessin("src/game/skins_ships.txt");
         this.chargeurProjectile = new ChargeurDessin("src/game/skins_missiles.txt");
         this.niveau = new Niveau(1,"",1,1,1);
-        this.vaisseau = new Vaisseau(0, 0,this.chargeurVaisseau.getListeDessin(),0,1);
+        this.vaisseau = new Vaisseau(0, 0,this.chargeurVaisseau.getListeDessin(),0,1000);
         this.listeEnnemis = new ArrayList<Alien>();
         this.listeTirs = new ArrayList<Projectile>();
         this.hud = new HUD(this.getLargeur(), this.getHauteur());
@@ -389,6 +389,22 @@ public class GestionJeu{
                     this.majScore(10);
                 }
             }
+
+            for(double i=this.getVaisseau().getX();i<this.getVaisseau().getLargeur();++i)
+            {
+                for(double j=this.getVaisseau().getY();j<this.getVaisseau().getHauteur();++j)
+                {
+                    if(mob.contient(i,j))
+                    {
+                        System.out.println("AIEUUUU");
+                        // Le joueur perd autant de vies qu'il en reste à l'alien
+                        this.getVaisseau().subirDegats(mob.getVies());
+
+                        // Mais reussit quand même a le tuer. ( Pas envie de gérer un clignotement et invincibilité )
+                        mob.setMort(true);
+                    }
+                }
+            }
         }
     }
 
@@ -439,10 +455,14 @@ public class GestionJeu{
         }
         else
         {
+            if(this.getVaisseau().isMort())
+            {
+                this.gameOver();
+            }
+
             for(Alien mob : this.listeEnnemis)
                 if(mob.getY()<=0)
                 {
-                    System.out.println("Le joueur perd une vie !");
                     this.gameOver();
                 }
         }

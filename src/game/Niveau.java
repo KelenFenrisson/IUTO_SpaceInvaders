@@ -1,11 +1,39 @@
 package game;
 
 import javafx.scene.media.AudioClip;
-
 import java.nio.file.Paths;
 
-/**
- * Created by mathieu on 11/02/17.
+/** CLASSE Niveau
+ *
+ *
+ *
+ * *********************************************************************************************************************
+ * ATTRIBUTS
+ *
+ * private int num;
+ * private String nom;
+ * private double vitesseEnnemis;
+ * private int vieEnnemis;
+ * private int modScoreEnnemis;
+ * private AudioClip bgm;
+ * private boolean termine;
+ *
+ * *********************************************************************************************************************
+ * METHODES
+ *
+ * public Niveau(int num, String nom, double vitesseEnnemis, int vieEnnemis, int modScoreEnnemis)
+ * public int getNum()
+ * public String getNom()
+ * public double getVitesseEnnemis()
+ * public int getVieEnnemis()
+ * public int getModScoreEnnemis()
+ * public AudioClip getBgm()
+ * public void setBgm(AudioClip bgm)
+ * public void bgmPlay()
+ * public void bgmStop()
+ * public boolean isTermine()
+ * public void setTermine(boolean termine)
+ * *********************************************************************************************************************
  */
 public class Niveau
 {

@@ -56,7 +56,7 @@ public class Dessin {
 	 */ 
     public boolean contient(double posx, double posy){
         for(ChainePositionnee cp: listeChaines){
-            if (cp.contient(posx, posy))
+            if (cp.contient(posx, posy) && cp.getChaine().charAt((int)(posx-cp.getx()))!=' ')
                 return true;
         }
         return false;

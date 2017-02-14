@@ -42,7 +42,6 @@ import java.util.ResourceBundle;
  * public void arreterAnimation()
  * public void setScreenParent(ScreensController screenParent)
  * public MPKEventHandler initKeyEventHandler()
- * public void handle(MPKEventHandler.MultiKeyEvent ke)
  * public void nouvellePartie()
  *
  * *********************************************************************************************************************
@@ -50,12 +49,25 @@ import java.util.ResourceBundle;
 
 public class Game implements Initializable, ControlledScreen {
 
+    // Gestionnaire multi ecrans
     private ScreensController myController;
+
+    // Controleur de jeu
     private GestionJeu gestionnaire;
+
+    // Contrôleur de temps
     private Timeline timeline;
+
+    // Controleur de Clavier
     private EventHandler KeHandler = this.initKeyEventHandler();
+
+    // Message initial
     private String message = "Appuyez sur F2 pour lancer une nouvelle partie";
+
+    // Vue
     public AnchorPane root = new AnchorPane();
+
+    // Caracteres du jeu
     public Group caracteres = new Group();
 
 
@@ -63,18 +75,17 @@ public class Game implements Initializable, ControlledScreen {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Initialisation");
 
+        // Receptionnaire Clavier
         this.root.setOnKeyPressed(KeHandler);
         this.root.setOnKeyReleased(KeHandler);
 
+
         Text t = new Text ((Main.LARGEUR_VUE*Main.largeurCaractere/2)-(this.message.length()/2)*Main.largeurCaractere,
-                (Main.HAUTEUR_VUE*Main.hauteurTexte/2), "Appuyez sur F2 pour lancer une partie");
+                (Main.HAUTEUR_VUE*Main.hauteurTexte/2), this.message);
         t.setFont(Font.font ("Monospaced", 12));
         caracteres.getChildren().add(t);
 
     }
-
-
-
 
     public void majAffichage(){
 //        System.out.println("Maj Affichage");
@@ -111,6 +122,7 @@ public class Game implements Initializable, ControlledScreen {
     public void arreterAnimation() {
         timeline.stop();
     }
+
 
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
@@ -149,6 +161,9 @@ public class Game implements Initializable, ControlledScreen {
         this.gestionnaire=new GestionJeu();
         this.lancerAnimation();
     }
+
+
+
 
     public void goToSplash(){
         myController.setScreen(Main.SPLASH_SCREEN);
