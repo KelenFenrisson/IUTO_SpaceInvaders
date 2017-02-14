@@ -16,8 +16,5 @@ package gui;
 
 public interface ControlledScreen
 {
-
-    void initialize();
     void setScreenParent(ScreensController screenPage);
-
 }

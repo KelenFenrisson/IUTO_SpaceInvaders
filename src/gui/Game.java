@@ -36,7 +36,6 @@ import java.util.ResourceBundle;
  *
  * METHODES
  *
- * public void initialize()
  * public void initialize(URL url, ResourceBundle resourceBundle)
  * public void majAffichage()
  * public void lancerAnimation()
@@ -59,13 +58,6 @@ public class Game implements Initializable, ControlledScreen {
     public AnchorPane root = new AnchorPane();
     public Group caracteres = new Group();
 
-
-
-
-    @Override
-    public void initialize() {
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

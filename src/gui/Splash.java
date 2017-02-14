@@ -25,7 +25,6 @@ import java.util.ResourceBundle;
  *
  * METHODES
  *
- * public void initialize()
  * public void initialize(URL url, ResourceBundle resourceBundle)
  * public void setScreenParent(ScreensController screenParent)
  * public void goToGame()
@@ -39,14 +38,6 @@ public class Splash implements Initializable, ControlledScreen {
     public Image image;
     private ScreensController myController;
 
-
-    @Override
-    public void initialize() {
-
-        image = new Image("src/gui/growler.png");
-
-    }
-
     public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
@@ -59,7 +50,6 @@ public class Splash implements Initializable, ControlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     public void playGrowl()
