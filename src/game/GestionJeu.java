@@ -1,5 +1,9 @@
 package game;// CLASSE DONNEE AUX ETUDIANTS
 // A COMPLETER
+import gui.Main;
+import javafx.scene.media.AudioClip;
+
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class GestionJeu{
@@ -30,28 +34,31 @@ public class GestionJeu{
 	// ATTENTION, seul le constructeur sans paramètre est accepté
 
     public GestionJeu() {
-        this.largeur = 100;
-        this.hauteur = 60;
+        this.largeur = Main.LARGEUR_VUE;
+        this.hauteur = Main.HAUTEUR_VUE;
         this.dessin = new Dessin();
         this.score = new Score();
         this.elementsdeJeu = new ArrayList<Dessin>();
         this.chargeurAlien = new ChargeurDessin("src/game/skins_aliens.txt");
-        this.chargeurVaisseau = new ChargeurDessin("src//game/skins_ships.txt");
-        this.chargeurProjectile = new ChargeurDessin("src//game/skins_missiles.txt");
+        this.chargeurVaisseau = new ChargeurDessin("src/game/skins_ships.txt");
+        this.chargeurProjectile = new ChargeurDessin("src/game/skins_missiles.txt");
         this.niveau = new Niveau(1,"",1,1,1);
-        this.vaisseau = new Vaisseau(this.getLargeur(), 0,this.chargeurVaisseau.getListeDessin(),0,1);
+        this.vaisseau = new Vaisseau(0, 0,this.chargeurVaisseau.getListeDessin(),0,1);
         this.listeEnnemis = new ArrayList<Alien>();
         this.listeTirs = new ArrayList<Projectile>();
         this.hud = new HUD(this.getLargeur(), this.getHauteur());
         this.compteTours = 0;
 
         this.initHUD();
+        this.elementsdeJeu.add(this.vaisseau);
+        this.creerEnnemis();
     }
     // =================================================================================================================
     // ==================================================   INITS   ====================================================
     // =================================================================================================================
     public void initHUD()
     {
+
 
     }
 
@@ -183,7 +190,7 @@ public class GestionJeu{
     // ATTENTION - la méthode getDessin() est appelée environ 40 fois par seconde
 	// donc, il ne faut pas instancier de nouvel objet dans cette 
 	// méthode au risque de saturer rapidement la mémoire
-	Dessin getDessin(){
+    public Dessin getDessin(){
 	    this.dessin.vider();
 
         //Ajouter render ici
@@ -198,7 +205,7 @@ public class GestionJeu{
 	// ATTENTION - la méthode jouerUnTour() est appelée environ 40 fois par seconde
 	// donc, il ne faut pas instancier de nouvel objet dans cette 
 	// méthode au risque de saturer rapidement la mémoire
-	void jouerUnTour(){
+    public void jouerUnTour(){
 
 	    // Deplacements
 	    this.deplacerEnnemis();
@@ -214,20 +221,22 @@ public class GestionJeu{
         // Nouveau tour
         ++this.compteTours;
 	}
-	
 
-	void toucheEspace()
+
+    public void toucheEspace()
     {
         //System.out.println("Appui touche Espace");
+        AudioClip pew = new AudioClip(Paths.get("src/game/phasers3.wav").toUri().toString());
+        pew.play();
         Position canon = this.vaisseau.getPositionCanon();
-        Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),0,1);
+        Projectile tir = new Projectile(canon.getX(), canon.getY(),this.chargeurProjectile.getListeDessin(),6,10);
         this.listeTirs.add(tir);
         this.elementsdeJeu.add(tir);
-        System.out.println("Taille liste des ennemis : "+ this.listeEnnemis.size());
-        System.out.println("Taille liste d'elements de jeu : "+ this.elementsdeJeu.size());
+//        System.out.println("Taille liste des ennemis : "+ this.listeEnnemis.size());
+//        System.out.println("Taille liste d'elements de jeu : "+ this.elementsdeJeu.size());
 	}
-	
-	void toucheDroite()
+
+    public void toucheDroite()
     {
         //System.out.println("Appui touche Droite");
 		if(this.vaisseau.getX()+this.vaisseau.getLargeur()+1<this.getLargeur())
@@ -236,7 +245,7 @@ public class GestionJeu{
         }
 	}
 
-	void toucheGauche(){
+    public void toucheGauche(){
         //System.out.println("Appui touche Gauche");
         if(this.vaisseau.getX()-1>=0)
         {
@@ -245,7 +254,7 @@ public class GestionJeu{
         }
     }
 
-    void creerEnnemis()
+    public void creerEnnemis()
     {
         // Un Alien a une taille max de (17,7) selon le fichier skins_aliens.txt
 
@@ -253,14 +262,17 @@ public class GestionJeu{
         {
             for(int y = this.getHauteur()-7; y>this.getHauteur()/2;y-=7)
             {
-                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), 0,1);
+                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), 4,10);
                 this.listeEnnemis.add(nouveau);
                 this.elementsdeJeu.add(nouveau);
             }
         }
+
+        AudioClip ufo = new AudioClip(Paths.get("src/game/ufo2.wav").toUri().toString());
+        ufo.play();
     }
 
-	void deplacerEnnemis()
+    public void deplacerEnnemis()
     {
         //System.out.println("Déplacement des Aliens");
         for(Alien ennemi: this.listeEnnemis)
@@ -276,7 +288,7 @@ public class GestionJeu{
         }
     }
 
-    void deplacerTirs()
+    public void deplacerTirs()
     {
         //System.out.println("Déplacement des tirs");
         for(Projectile tir:this.listeTirs)
@@ -285,7 +297,7 @@ public class GestionJeu{
         }
     }
 
-	void detecterCollisions()
+    public void detecterCollisions()
     {
         //System.out.println("Detection des collisions");
         for(Alien mob:this.listeEnnemis)
@@ -302,7 +314,7 @@ public class GestionJeu{
         }
     }
 
-    void nettoyagetableau()
+    public void nettoyagetableau()
     {
         ArrayList<Projectile> restants=new ArrayList<Projectile>(); // Tirs en jeu le prochain tour
         ArrayList<Alien> survivants=new ArrayList<Alien>();// Aliens en jeu le prochain tour
@@ -333,14 +345,14 @@ public class GestionJeu{
 
     }
 
-    void majScore(int points)
+    public void majScore(int points)
     {
         //System.out.println("Mise a jour du score");
         this.score.setPoints(this.score.getPoints()+points);
     }
 
 
-    void checkCycleJeu()
+    public void checkCycleJeu()
     {
         //System.out.println("Y a t'il victoire ou defaite ?");
         if(this.listeEnnemis.size()==0)
@@ -357,13 +369,13 @@ public class GestionJeu{
         }
     }
 
-    void levelOver()
+    public void levelOver()
     {
-        System.out.println("Fin du niveau");
+        //System.out.println("Fin du niveau");
     }
 
 
-    void gameOver()
+    public void gameOver()
     {
         System.out.println("Game Over");
     }

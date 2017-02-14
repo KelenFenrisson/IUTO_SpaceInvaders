@@ -16,7 +16,7 @@ public class ChargeurDessin
     private ArrayList<Dessin> listeDessin;
     private String nomFichier;
 
-    ChargeurDessin(String nomFichier) {
+    public ChargeurDessin(String nomFichier) {
         //this.listeDessin = new ArrayList<Dessin>();
         this.setNomFichier(nomFichier);
         try {
@@ -26,7 +26,7 @@ public class ChargeurDessin
         }
     }
 
-    ArrayList<Dessin> getListeDessin()
+    public ArrayList<Dessin> getListeDessin()
     {
         ArrayList<Dessin> liste = null;
         try {
@@ -37,7 +37,7 @@ public class ChargeurDessin
         return liste;
     }
 
-    ArrayList<Dessin> remplirListeDessin() throws IOException
+    public ArrayList<Dessin> remplirListeDessin() throws IOException
     {
         ArrayList<Dessin> liste = new ArrayList<Dessin>();
         //On prepare un Dessin
@@ -77,12 +77,12 @@ public class ChargeurDessin
         return liste;
     }
 
-    int getTailleListe()
+    public int getTailleListe()
     {
         return this.getListeDessin().size();
     }
 
-    private String nettoyerLigne(String ligne)
+    public String nettoyerLigne(String ligne)
     {
         String propre = ""; // C'est mieux.
         for(int i=0;i<ligne.length();++i)
@@ -99,7 +99,7 @@ public class ChargeurDessin
         return propre;
     }
 
-    void afficheDessins()
+    public void afficheDessins()
     {
         System.out.println("Il y a "+ this.getListeDessin().size() +" dessins");
         for(Dessin pic:this.getListeDessin())

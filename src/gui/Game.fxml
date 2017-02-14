@@ -1,11 +1,16 @@
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<GridPane fx:controller="gui.Game" xmlns:fx="http://javafx.com/fxml" alignment="center">
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <ImageView >
-        <Image fx:id="image"  url="@growler.png" />
-    </ImageView>
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
 
 
-</GridPane>
+<AnchorPane
+        fx:id="root"
+        children="${root.children}"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="gui.Game"
+        focusTraversable="true">
+
+    <Group fx:id="caracteres" children="${caracteres.children}" />
+
+</AnchorPane>

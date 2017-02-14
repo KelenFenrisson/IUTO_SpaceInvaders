@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by mathieu on 09/02/17.
  */
-class Diaporama extends Dessin
+public class Diaporama extends Dessin
 {
     private double x; // x mini
     private double y; // y mini
@@ -14,7 +14,7 @@ class Diaporama extends Dessin
     private double largeur;
     private double hauteur;
 
-    Diaporama(double x, double y, ArrayList<Dessin> listeVues, int numVue)
+    public Diaporama(double x, double y, ArrayList<Dessin> listeVues, int numVue)
     {
         super();
         this.listeVues = listeVues;
@@ -28,7 +28,7 @@ class Diaporama extends Dessin
     }
 
     // Retourne le x le plus petit parmi this.getChaines()
-    double getX()
+    public double getX()
     {
         // On choppe la liste de ChainesPositionnes associées à la vue en cours
         ArrayList<ChainePositionnee> listeChaines = this.getChaines();
@@ -48,7 +48,7 @@ class Diaporama extends Dessin
     }
 
     // Met à x les coordonnées de toutes les ChainePositionnee de this.getChaines()
-    void setX(double nx)
+    public void setX(double nx)
     {
         ArrayList<ChainePositionnee> listeChaines = this.getChaines();
         for(int i=0;i<listeChaines.size();++i)
@@ -57,7 +57,7 @@ class Diaporama extends Dessin
         }
     }
 
-    double getY()
+    public double getY()
     {
         ArrayList<ChainePositionnee> listeChaines = this.getChaines();
         this.y = listeChaines.get(0).gety();
@@ -73,7 +73,7 @@ class Diaporama extends Dessin
 
 
     // Met à ny+y les coordonnées de toutes les ChainePositionnee de this.getChaines()
-    void setY(double ny)
+    public void setY(double ny)
     {
         ArrayList<ChainePositionnee> listeChaines = this.getChaines();
         for(int i=0;i<listeChaines.size();++i)
@@ -92,21 +92,21 @@ class Diaporama extends Dessin
         return this.getChaines().size();
     }
 
-    ArrayList<Dessin> getListeVues() {
+    public ArrayList<Dessin> getListeVues() {
         return listeVues;
     }
 
-    void setListeVues(ArrayList<Dessin> listeVues) {
+    public void setListeVues(ArrayList<Dessin> listeVues) {
         this.listeVues = listeVues;
     }
 
     // Retourne l'indice de la vue actuelle dans this.listeVues
-    int getNumVue() {
+    public int getNumVue() {
         return this.numVue;
     }
 
     //Met à this.listeVues.get(numVue) le dessin actuel, aux coordonnées actuelles et change numVue
-    void setNumVue(int numVue)
+    public void setNumVue(int numVue)
     {
         this.vider();
         this.ajouteDessin(this.listeVues.get(numVue));
