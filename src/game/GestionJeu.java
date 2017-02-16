@@ -117,24 +117,17 @@ public class GestionJeu{
         this.vaisseau = new Vaisseau(0, 0,this.chargeurVaisseau.getListeDessin(),0,1);
         this.listeEnnemis = new ArrayList<Alien>();
         this.listeTirs = new ArrayList<Projectile>();
-        this.hud = new HUD(this.getLargeur(), this.getHauteur());
+        this.hud = new HUD(this.getLargeur(), this.getHauteur(), this.getScore(), this.getNiveau());
         this.compteTours = 0;
-
-        this.initHUD();
         this.elementsdeJeu.add(this.vaisseau);
         this.creerEnnemis(this.getNiveau().getVieEnnemis());
-
     }
 
 
     // =================================================================================================================
     // ==================================================   INITS   ====================================================
     // =================================================================================================================
-    public void initHUD()
-    {
 
-
-    }
 
     // =================================================================================================================
     // ==================================================   GETTERS   ==================================================
@@ -267,6 +260,8 @@ public class GestionJeu{
     public Dessin getDessin(){
 	    this.dessin.vider();
 
+	    this.dessin.ajouteDessin(this.getHud());
+
         //Ajouter render ici
         for (Dessin element:this.elementsdeJeu)
         {
@@ -287,13 +282,15 @@ public class GestionJeu{
         if(this.getNiveau().isTermine())
         {
             // Message "Niveau X terminé, preparez vous pour le niveau X+1
-            this.setNiveau(new Niveau(
+            Niveau suivant = new Niveau(
                     this.getNiveau().getNum()+1,
                     "",
                     this.getNiveau().getVitesseEnnemis()-0.01,
                     this.getNiveau().getVieEnnemis()+1,
                     this.getNiveau().getModScoreEnnemis()+1
-                    ));
+            );
+            this.setNiveau(suivant);
+            this.getHud().setNiveau(suivant);
             this.creerEnnemis(this.getNiveau().getVieEnnemis());
         }
 
@@ -307,6 +304,7 @@ public class GestionJeu{
         // Condition de fin de partie
         this.checkCycleJeu();
         // MaJ Affichage
+        this.getHud().update();
 	    this.getDessin();
         // Nouveau tour
         ++this.compteTours;

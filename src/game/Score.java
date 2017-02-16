@@ -33,4 +33,6 @@ public class Score
     public void setPoints(int points) {
         this.points = points;
     }
+
+    public String toString(){return "Score : "+this.points;}
 }

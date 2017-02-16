@@ -63,10 +63,7 @@ public class Niveau
 
     public String getNom()
     {
-        if(this.nom.isEmpty())
-        {
-            this.nom="Niveau "+this.getNum();
-        }
+        this.nom="Niveau "+this.getNum();
         return nom;
     }
 
@@ -121,4 +118,6 @@ public class Niveau
     public void setTermine(boolean termine) {
         this.termine = termine;
     }
+
+    public String toString(){return ""+this.getNum();}
 }

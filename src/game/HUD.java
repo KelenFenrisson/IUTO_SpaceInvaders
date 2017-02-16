@@ -38,34 +38,30 @@ package game;
  * public void setGameOverMsg(ChainePositionnee gameOverMsg) 
  * *********************************************************************************************************************
  */
-public class HUD extends Dessin
-{
+public class HUD extends Dessin {
     private int screenWidth;
     private int screenHeight;
-    private int score;
-    private int levelNum;
+    private Score score;
+    private Niveau niveau;
     private ChainePositionnee scoreTag;
     private ChainePositionnee newGameMsg;
     private ChainePositionnee newLevelMsg;
     private ChainePositionnee endLevelMsg;
     private ChainePositionnee gameOverMsg;
 
-    public HUD(int largeur, int hauteur)
-    {
+    public HUD(int largeur, int hauteur, Score score, Niveau niveau) {
         this.screenWidth = largeur;
         this.screenHeight = hauteur;
+        this.score = score;
+        this.niveau = niveau;
     }
 
     // =================================================================================================================
     // ==================================================   GETTERS   ==================================================
     // =================================================================================================================
 
-    public int getScore() {
+    public Score getScore() {
         return score;
-    }
-
-    public int getLevelNum() {
-        return levelNum;
     }
 
     public ChainePositionnee getScoreTag() {
@@ -88,16 +84,15 @@ public class HUD extends Dessin
         return gameOverMsg;
     }
 
-    // =================================================================================================================
+    public Niveau getNiveau() {
+        return niveau;
+    }
+// =================================================================================================================
     // ==================================================   SETTERS   ==================================================
     // =================================================================================================================
 
-    public void setScore(int score) {
+    public void setScore(Score score) {
         this.score = score;
-    }
-
-    public void setLevelNum(int levelNum) {
-        this.levelNum = levelNum;
     }
 
     public void setScoreTag(ChainePositionnee scoreTag) {
@@ -118,5 +113,20 @@ public class HUD extends Dessin
 
     public void setGameOverMsg(ChainePositionnee gameOverMsg) {
         this.gameOverMsg = gameOverMsg;
+    }
+
+    public void setNiveau(Niveau niveau) {
+        this.niveau = niveau;
+    }
+
+// =================================================================================================================
+// =================================================   METHODES   ==================================================
+// =================================================================================================================
+
+    public void update() {
+        this.vider();
+        this.ajouteChaine(0.5, this.screenHeight-1, this.getNiveau().getNom());
+        this.ajouteChaine(0.5, this.screenHeight-2, this.getScore().toString());
+
     }
 }
