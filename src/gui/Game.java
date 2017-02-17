@@ -89,17 +89,22 @@ public class Game implements Initializable, ControlledScreen {
 
     public void majAffichage(){
 //        System.out.println("Maj Affichage");
+
         caracteres.getChildren().clear();
         int hauteur = Main.HAUTEUR_VUE * Main.hauteurTexte; // Pas adaptable mais ça marche
 
         for( ChainePositionnee cp : gestionnaire.getDessin().getChaines())
         {
-
             Text t = new Text (cp.getx()*Main.largeurCaractere,hauteur-cp.gety()*Main.hauteurTexte, cp.getChaine());
 
             t.setFont(Font.font ("Monospaced", 10));
             caracteres.getChildren().add(t);
         }
+
+    }
+
+    public void checkGameOver(){
+        if(this.gestionnaire.isGameOver()){this.arreterAnimation();}
     }
 
     public void lancerAnimation() {
@@ -111,11 +116,13 @@ public class Game implements Initializable, ControlledScreen {
                         actionEvent -> {
                             gestionnaire.jouerUnTour();
                             majAffichage();
+                            checkGameOver();
                         }),
                 new KeyFrame(Duration.seconds(0.025))
         );
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+
     }
 
 
@@ -160,6 +167,7 @@ public class Game implements Initializable, ControlledScreen {
     {
         this.gestionnaire=new GestionJeu();
         this.lancerAnimation();
+
     }
 
 

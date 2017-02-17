@@ -98,6 +98,7 @@ public class GestionJeu{
     private ArrayList<Alien> listeEnnemis;
     private ArrayList<Projectile> listeTirs;
     private int compteTours;
+    private boolean gameOver;
 
     // =================================================================================================================
     // ==============================================   CONSTRUCTOR   ==================================================
@@ -105,6 +106,7 @@ public class GestionJeu{
 	// ATTENTION, seul le constructeur sans paramètre est accepté
 
     public GestionJeu() {
+        this.gameOver=false;
         this.largeur = Main.LARGEUR_VUE;
         this.hauteur = Main.HAUTEUR_VUE;
         this.dessin = new Dessin();
@@ -185,6 +187,9 @@ public class GestionJeu{
         return compteTours;
     }
 
+    public boolean isGameOver() {
+        return gameOver;
+    }
 
     // =================================================================================================================
     // ==================================================   SETTERS   ==================================================
@@ -470,13 +475,13 @@ public class GestionJeu{
         {
             if(this.getVaisseau().isMort())
             {
-                this.gameOver();
+                this.toGameOver();
             }
 
             for(Alien mob : this.listeEnnemis)
                 if(mob.getY()<=0)
                 {
-                    this.gameOver();
+                    this.toGameOver();
                 }
         }
     }
@@ -489,9 +494,10 @@ public class GestionJeu{
     }
 
 
-    public void gameOver()
+    public void toGameOver()
     {
         System.out.println("Game Over");
         this.getNiveau().bgmStop();
+        this.gameOver=true;
     }
 }

@@ -9,7 +9,7 @@
 <GridPane alignment="center" onMouseClicked="#goToGame" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="gui.Splash">
 
     <ImageView preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-        <Image fx:id="image" url="@../img/growler.png" />
+        <Image fx:id="image" url="@../img/IUTO.png" />
     </ImageView>
    <columnConstraints>
       <ColumnConstraints />

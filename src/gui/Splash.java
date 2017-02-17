@@ -36,6 +36,7 @@ import java.util.ResourceBundle;
 public class Splash implements Initializable, ControlledScreen {
 
     public Image image;
+    public AudioClip intro = new AudioClip(Paths.get("src/sfx/cadetroussel.wav").toUri().toString());
     private ScreensController myController;
 
     public void setScreenParent(ScreensController screenParent){
@@ -44,19 +45,17 @@ public class Splash implements Initializable, ControlledScreen {
 
     @FXML
     public void goToGame(){
-        this.playGrowl();
+        this.intro.stop();
         myController.setScreen(Main.GAME_SCREEN);
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle)
+    {
+        this.intro.play();
     }
 
-    public void playGrowl()
-    {
-        AudioClip growl = new AudioClip(Paths.get("src/sfx/growl.wav").toUri().toString());
-        growl.play();
-    }
+
 
 
     //any required method here

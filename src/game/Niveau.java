@@ -69,7 +69,7 @@ public class Niveau
 
     public double getVitesseEnnemis()
     {
-        if(this.vitesseEnnemis<=0)
+        if(this.vitesseEnnemis>0)
         {
             this.vitesseEnnemis=0.01;
         }
