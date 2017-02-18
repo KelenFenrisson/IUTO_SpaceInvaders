@@ -54,7 +54,7 @@ public class Niveau
         this.modScoreEnnemis = modScoreEnnemis;
         this.bgm = new AudioClip(Paths.get("src/sfx/bgm.wav").toUri().toString());
         this.bgm.setVolume(0.25);
-    }
+        }
 
     public int getNum() {
         return num;

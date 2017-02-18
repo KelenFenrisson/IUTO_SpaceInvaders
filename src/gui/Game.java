@@ -131,7 +131,6 @@ public class Game implements Initializable, ControlledScreen {
 
     public void lancerAnimation() {
 
-        System.out.println("Lancer animation");
         // On ajoute le Controleur de Temps
         timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0),
@@ -194,6 +193,8 @@ public class Game implements Initializable, ControlledScreen {
 
 
     public void goToHighScores(){
+
+        this.gestionnaire = new GestionJeu();
         myController.setScreen(Main.HIGHSCORES_SCREEN);
     }
 

@@ -1,20 +1,16 @@
 package gui;
 
-import game.HighScore;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 /** CLASSE HighScores
@@ -64,7 +60,7 @@ public class HighScores implements Initializable, ControlledScreen {
     {
         System.out.println("HighScores init was initialized.");
         Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(2),
+                new KeyFrame(Duration.seconds(1),
                         actionEvent -> {
                             // Call update method for every 1 sec.
                             update();
@@ -76,11 +72,14 @@ public class HighScores implements Initializable, ControlledScreen {
     public void update()
     {
         topten.getChildren().clear();
+        Text charttitle = new Text(200, 200,"TOP 10");
+        charttitle.setFont(Font.font ("Monospaced", 50));
+        topten.getChildren().add(charttitle);
         double interligne = 20;
-        for(int i=0;i<Main.TOP10.getScorelist().size();++i)
+        for(int i=0;i<10;++i)
         {
             String line = (i+1)+". "+Main.TOP10.getScorelist().get(i);
-            topten.getChildren().add(new Text(100, 100+(i*interligne), line));
+            topten.getChildren().add(new Text(200, 250+(i*interligne), line));
         }
     }
 

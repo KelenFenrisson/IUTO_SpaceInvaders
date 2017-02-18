@@ -123,6 +123,7 @@ public class GestionJeu{
         this.compteTours = 0;
         this.elementsdeJeu.add(this.vaisseau);
         this.creerEnnemis(this.getNiveau().getVieEnnemis());
+        this.getNiveau().bgmPlay();
     }
 
 
@@ -299,6 +300,7 @@ public class GestionJeu{
             this.setNiveau(suivant);
             this.getHud().setNiveau(suivant);
             this.creerEnnemis(this.getNiveau().getVieEnnemis());
+            this.getNiveau().bgmPlay();
         }
 
 	    // Deplacements
@@ -367,9 +369,7 @@ public class GestionJeu{
         AudioClip ufo = new AudioClip(Paths.get("src/sfx/ufo2.wav").toUri().toString());
         ufo.setVolume(0.25);
         ufo.play();
-        this.getNiveau().bgmPlay();
-
-    }
+        }
 
     public void deplacerEnnemis()
     {
