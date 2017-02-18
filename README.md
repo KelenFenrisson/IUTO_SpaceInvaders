@@ -17,7 +17,7 @@ J'ai décidé de changer la structure donnée par l'énoncé car,
  JavaFX est basé sur un modele MVC et comme je l'avais abordé en cours
  j'ai décidé de m'y interesser
  
- J'ai aussi décidé d'integrer deux fonctionalités issues de
+ J'ai aussi décidé d'integrer trois fonctionalités issues de
  [codes source externes](doc/SOURCES.md) qui 
  necessitaient ces changements.
  

@@ -1,5 +1,6 @@
 package gui;
 
+import game.HighScore;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -39,10 +40,14 @@ public class Main extends Application {
     public static int largeurCaractere;
     public static int hauteurTexte;
 
+    public static final HighScore TOP10  = new HighScore();
+
     public static final String SPLASH_SCREEN = "Splash";
     public static final String SPLASH_SCREEN_FXML = "Splash.fxml";
     public static final String GAME_SCREEN = "Game";
     public static final String GAME_SCREEN_FXML = "Game.fxml";
+    public static final String HIGHSCORES_SCREEN = "HighScores";
+    public static final String HIGHSCORES_SCREEN_FXML = "HighScores.fxml";
 
 
     @Override
@@ -63,6 +68,7 @@ public class Main extends Application {
         // On la charge
         mainContainer.loadScreen(Main.SPLASH_SCREEN, Main.SPLASH_SCREEN_FXML);
         mainContainer.loadScreen(Main.GAME_SCREEN, Main.GAME_SCREEN_FXML);
+        mainContainer.loadScreen(Main.HIGHSCORES_SCREEN, Main.HIGHSCORES_SCREEN_FXML);
 
         // On definit la vue en cours
         mainContainer.setScreen(Main.SPLASH_SCREEN);
@@ -87,7 +93,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 }

@@ -1,6 +1,6 @@
 package game;
 
-/** CLASSE SCore
+/** CLASSE Score
  *
  * Compteur de points
  *

@@ -252,6 +252,8 @@ public class GestionJeu{
         this.compteTours = compteTours;
     }
 
+    public void setGameOver(boolean value){this.gameOver = value;}
+
 
 
     // =================================================================================================================

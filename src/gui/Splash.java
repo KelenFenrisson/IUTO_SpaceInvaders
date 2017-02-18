@@ -29,7 +29,6 @@ import java.util.ResourceBundle;
  * public void setScreenParent(ScreensController screenParent)
  * public void goToGame()
  * public void initialize(URL url, ResourceBundle resourceBundle)
- * public void playGrowl()
  *
  * *********************************************************************************************************************
  */

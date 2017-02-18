@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.text.Text?>
+<AnchorPane
+        fx:id="root"
+        children="${root.children}"
+        onMouseClicked="#goToGame"
+        xmlns:fx="http://javafx.com/fxml/1"
+        xmlns="http://javafx.com/javafx/8.0.60"
+        fx:controller="gui.HighScores"
+        focusTraversable="true">
+
+    <Text x="297" y="50"> Top 10 </Text>
+    <Group fx:id="topten" children="${topten.children}" />
+
+
+</AnchorPane>

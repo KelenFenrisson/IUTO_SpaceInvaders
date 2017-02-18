@@ -10,10 +10,13 @@ import javafx.scene.Group;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+
 
 /** CLASSE Game
  *
@@ -43,6 +46,7 @@ import java.util.ResourceBundle;
  * public void setScreenParent(ScreensController screenParent)
  * public MPKEventHandler initKeyEventHandler()
  * public void nouvellePartie()
+ * public void checkGameOver()
  *
  * *********************************************************************************************************************
  */
@@ -70,6 +74,9 @@ public class Game implements Initializable, ControlledScreen {
     // Caracteres du jeu
     public Group caracteres = new Group();
 
+    // Statut des animations
+    public boolean paused = false;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -79,10 +86,11 @@ public class Game implements Initializable, ControlledScreen {
         this.root.setOnKeyPressed(KeHandler);
         this.root.setOnKeyReleased(KeHandler);
 
-
-        Text t = new Text ((Main.LARGEUR_VUE*Main.largeurCaractere/2)-(this.message.length()/2)*Main.largeurCaractere,
-                (Main.HAUTEUR_VUE*Main.hauteurTexte/2), this.message);
+        Text title = new Text(50, 100, "SPACE INVADERS");
+        title.setFont(Font.font("Monospaced", FontWeight.BOLD,60));
+        Text t = new Text (135,300, this.message);
         t.setFont(Font.font ("Monospaced", 12));
+        caracteres.getChildren().add(title);
         caracteres.getChildren().add(t);
 
     }
@@ -103,9 +111,23 @@ public class Game implements Initializable, ControlledScreen {
 
     }
 
-    public void checkGameOver(){
-        if(this.gestionnaire.isGameOver()){this.arreterAnimation();}
+    public void nouvellePartie()
+    {
+        this.gestionnaire=new GestionJeu();
+        this.lancerAnimation();
+
     }
+
+    public void checkGameOver(){
+
+        if(this.gestionnaire.isGameOver())
+        {
+            // On arrete le jeu
+            this.arreterAnimation();
+        }
+    }
+
+
 
     public void lancerAnimation() {
 
@@ -127,7 +149,10 @@ public class Game implements Initializable, ControlledScreen {
 
 
     public void arreterAnimation() {
+
         timeline.stop();
+        Main.TOP10.addScore(this.gestionnaire.getScore().getPoints());
+        this.goToHighScores();
     }
 
 
@@ -155,7 +180,12 @@ public class Game implements Initializable, ControlledScreen {
                             gestionnaire.toucheEspace();
                         }
                         if (ke.isPressed(KeyCode.P)) {
-                            System.out.println("Pause");
+                            if (paused){timeline.play();}
+                            else{timeline.pause();}
+                            paused = !paused;
+                        }
+                        if (ke.isPressed(KeyCode.X)) {
+                            gestionnaire.setGameOver(true);
                         }
                     }
                 });
@@ -163,18 +193,8 @@ public class Game implements Initializable, ControlledScreen {
     }
 
 
-    public void nouvellePartie()
-    {
-        this.gestionnaire=new GestionJeu();
-        this.lancerAnimation();
-
-    }
-
-
-
-
-    public void goToSplash(){
-        myController.setScreen(Main.SPLASH_SCREEN);
+    public void goToHighScores(){
+        myController.setScreen(Main.HIGHSCORES_SCREEN);
     }
 
 
