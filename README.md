@@ -73,3 +73,28 @@ tout le contenu sonore employé.
 
 - Après un mashing de F2, la vitesse globale du jeu augmente
 - Les Aliens se déplacent en dehors du tableau
+- Et ce bug arrivé une fois:
+
+** (java:27254): WARNING **: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-lWbHsJcxwK: Connexion refusée
+Initialisation
+HighScores init was initialized.
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fceba60b855, pid=27254, tid=0x00007fce98b0e700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_121-b13) (build 1.8.0_121-8u121-b13-0ubuntu1.16.04.2-b13)
+# Java VM: OpenJDK 64-Bit Server VM (25.121-b13 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [libc.so.6+0x14d855]
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# An error report file with more information is saved as:
+# /home/pubert/Documents/algoprog/java/IUTO_SpaceInvaders/hs_err_pid27254.log
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
