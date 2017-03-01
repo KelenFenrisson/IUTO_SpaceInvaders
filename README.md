@@ -62,8 +62,14 @@ J'ai décidé de changer la structure donnée par l'énoncé car,
 #### MPKEventHandler
 
 ### LES IMAGES
-Je ne suis pas à 100% certain de la licence Creative Commons de 
+Je ne suis pas à 100% certain de la license de
 tout le contenu graphique employé.
+
 ### LES SONS
-Je ne suis pas à 100% certain de la licence Creative Commons de 
-tout le contenu sonore employé.  
+Je ne suis pas à 100% certain de la licence de
+tout le contenu sonore employé.
+
+### BUGS CONNUS
+
+- Après un mashing de F2, la vitesse globale du jeu augmente
+- Les Aliens se déplacent en dehors du tableau

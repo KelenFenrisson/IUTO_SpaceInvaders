@@ -122,7 +122,7 @@ public class GestionJeu{
         this.hud = new HUD(this.getLargeur(), this.getHauteur(), this.getScore(), this.getNiveau());
         this.compteTours = 0;
         this.elementsdeJeu.add(this.vaisseau);
-        this.creerEnnemis(this.getNiveau().getVieEnnemis());
+        this.creerEnnemis();
         this.getNiveau().bgmPlay();
     }
 
@@ -299,7 +299,7 @@ public class GestionJeu{
             );
             this.setNiveau(suivant);
             this.getHud().setNiveau(suivant);
-            this.creerEnnemis(this.getNiveau().getVieEnnemis());
+            this.creerEnnemis();
             this.getNiveau().bgmPlay();
         }
 
@@ -352,7 +352,7 @@ public class GestionJeu{
         }
     }
 
-    public void creerEnnemis(int vieennemis)
+    public void creerEnnemis()
     {
         // Un Alien a une taille max de (17,7) selon le fichier skins_aliens.txt
 
@@ -360,7 +360,8 @@ public class GestionJeu{
         {
             for(int y = this.getHauteur()-7; y>this.getHauteur()/2;y-=7)
             {
-                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), 0,vieennemis);
+                //System.out.println("x: "+x+" y: "+y);
+                Alien nouveau = new Alien(x,y, this.chargeurAlien.getListeDessin(), (this.getNiveau().getNum()-1)%this.getChargeurAlien().getListeDessin().size(),this.getNiveau().getNum());
                 this.listeEnnemis.add(nouveau);
                 this.elementsdeJeu.add(nouveau);
             }
