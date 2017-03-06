@@ -73,7 +73,7 @@ tout le contenu sonore employé.
 
 - Après un mashing de F2, la vitesse globale du jeu augmente
 - Les Aliens se déplacent en dehors du tableau
-- Et ce bug arrivé une fois (plus de details dans /doc):
+- Et ce bug arrivé une fois:
 
 ** (java:27254): WARNING **: Couldn't connect to accessibility bus: Failed to connect to socket /tmp/dbus-lWbHsJcxwK: Connexion refusée
 
